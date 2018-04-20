@@ -108,7 +108,8 @@ body {
 .chart_container .chart_dropdown_data table {
     border-collapse: collapse;
     font-weight: normal;
-    white-space: nowrap
+    white-space: nowrap;
+    font-size: 14px;
 }
 
 .chart_container .chart_dropdown_data td {
@@ -1256,4 +1257,20 @@ body {
 .chart_BoxSize {
     width: 20px;
     height: 20px
+}
+
+#chart_mainCanvas {
+    overflow: hidden;
+    position: absolute;
+    z-index: 0;
+    transform-origin: left top 0; /* 缩放基点，不设置默认中间 */
+    transform:scale(0.5, 0.5); /* 缩放比例 */
+}
+
+#chart_overlayCanvas {
+    overflow: hidden;
+    position: absolute;
+    z-index: 2;
+    transform-origin: left top 0;
+    transform:scale(0.5, 0.5);
 }

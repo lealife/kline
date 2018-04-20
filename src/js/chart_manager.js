@@ -81,11 +81,11 @@ export class ChartManager {
             if (refresh) {
                 this.getFrame("frame0").setChanged(true);
             }
-            this.layout(this._mainContext, "frame0", 0, 0, this._mainCanvas.width, this._mainCanvas.height);
+            this.layout(this._mainContext, "frame0", 0, 0, this._mainCanvas.width/2, this._mainCanvas.height)/2;
             this.drawMain("frame0", this._mainContext);
         }
         if (layer === "All" || layer === "OverlayCanvas") {
-            this._overlayContext.clearRect(0, 0, this._overlayCanvas.width, this._overlayCanvas.height);
+            this._overlayContext.clearRect(0, 0, this._overlayCanvas.width/2, this._overlayCanvas.height)/2;
             this.drawOverlay("frame0", this._overlayContext);
         }
     }

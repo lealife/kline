@@ -133,6 +133,7 @@ export default class Kline {
     }
 
     resize(width, height) {
+        console.log('resize', width, height)
         this.width = width;
         this.height = height;
         Control.onSize(this.width, this.height);

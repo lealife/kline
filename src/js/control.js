@@ -318,6 +318,7 @@ export class Control {
         canvasGroupRect.y = toolPanelRect.y;
         canvasGroupRect.w = tabBarRect.w;
         canvasGroupRect.h = tabBarRect.y - toolPanelRect.y;
+
         toolBar.css({
             left: toolBarRect.x + 'px',
             top: toolBarRect.y + 'px',
@@ -341,10 +342,28 @@ export class Control {
         });
         let mainCanvas = $('#chart_mainCanvas')[0];
         let overlayCanvas = $('#chart_overlayCanvas')[0];
-        mainCanvas.width = canvasGroupRect.w;
-        mainCanvas.height = canvasGroupRect.h;
-        overlayCanvas.width = canvasGroupRect.w;
-        overlayCanvas.height = canvasGroupRect.h;
+
+        // retina
+
+        mainCanvas.width = canvasGroupRect.w * 2;
+        mainCanvas.height = canvasGroupRect.h * 2;
+        overlayCanvas.width = canvasGroupRect.w * 2;
+        overlayCanvas.height = canvasGroupRect.h * 2;
+
+        document.getElementById("chart_mainCanvas").getContext("2d").scale(2,2);
+        document.getElementById("chart_overlayCanvas").getContext("2d").scale(2,2);
+
+        // setTimeout(function () {
+        //     $('#chart_mainCanvas').css({
+        //         width: canvasGroupRect.w,
+        //         height: canvasGroupRect.h
+        //     })
+        //     $('#chart_overlayCanvas').css({
+        //         width: canvasGroupRect.w,
+        //         height: canvasGroupRect.h
+        //     })
+        // }, 1000)
+
         if (tabBarShown) {
             tabBar.css({
                 left: tabBarRect.x + 'px',
